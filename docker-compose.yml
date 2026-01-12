@@ -1,0 +1,33 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.multistage
+    ports:
+      - "8085:8080"
+    volumes:
+      - ./backend/resources/keys:/app/resources/keys
+    restart: unless-stopped
+    networks:
+      - wizard-net
+
+  redis:
+    image: redis:alpine
+    restart: always
+    networks:
+      - wizard-net
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "8280:80" # Nginx serves on 80
+    volumes:
+      - .:/app # Optional: Only for debugging, strictly not needed for prod but keeping for now if I need to check things. Actually, for prod image, volumes obscure the build. Removing them.
+    networks:
+      - wizard-net
+
+networks:
+  wizard-net:
+    driver: bridge

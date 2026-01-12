@@ -31,3 +31,4 @@ projectFilesBackup
 *.jar
 *.class
 pom.xml
+*.pem

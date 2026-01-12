@@ -12,7 +12,7 @@
                 :start (car/connection-pool {}))
 
 (def my-conn-spec-1
-  {:uri "[YOUR-REDIS-URI]"})
+  {:uri "redis://redis:6379"})
 
 (defn my-wcar-opts []
   {:pool my-conn-pool

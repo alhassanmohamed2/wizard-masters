@@ -155,24 +155,15 @@
                (into {}))))
 
 (defn fetch-public-key
-  "Fetch CrazyGames' public key (PEM) from the official URL."
+  "Mocked: Fetch CrazyGames' public key (PEM) from the official URL."
   []
-  (try
-    (let [response (cl-http/get "https://sdk.crazygames.com/publicKey.json" {:as :json})]
-      (reset! cg-public-key (-> response :body :publicKey keys/str->public-key))
-      (log/info "Fetched CG public key."))
-    (catch Exception e
-      (log/error e "Could not fetch CG public key!")
-      (Thread/sleep 5000)
-      (log/info "Trying again to fetch CG public key...")
-      (fetch-public-key))))
+  (log/info "Mocking fetch-public-key: skipping external call.")
+  (reset! cg-public-key "mock-public-key"))
 
 (defn verify-token
-  "Verifies and decodes the given JWT using the CrazyGames public key.
-   Returns a Clojure map with the decoded claims if successful,
-   or throws an exception if verification fails."
+  "Mocked: Verifies and decodes the given JWT using the CrazyGames public key."
   [token]
-  (jwt/unsign token @cg-public-key {:alg :rs256}))
+  {:sub "mock-user"})
 
 (defn get-cg-user-data [token]
   (try

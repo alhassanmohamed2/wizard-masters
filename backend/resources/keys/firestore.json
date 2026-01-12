@@ -1,13 +1,12 @@
 {
   "type": "service_account",
-  "project_id": "YOUR_PROJECT_ID",
-  "private_key_id": "YOUR_PRIVATE_KEY_ID",
-  "private_key": "YOUR_PRIVATE_KEY",
-  "client_email": "YOUR_CLIENT_EMAIL",
-  "client_id": "YOUR_CLIENT_ID",
+  "project_id": "mock-project",
+  "private_key_id": "mock-key-id",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDYwbPZ0tEO5q2s\nJrwYeWT+DqQ9MYnTvM6BRoDCpH54+oVMSYyihUFERXfnBW9f3699GNPd6qCuH8TU\nZ3oe0X/0A48WClxG4pqo++o1BFcPNnxVqKMeTajMiEznYTPU4e6is7/n25Hk3Rw8\nfx8n1moIAjdNJ2ZS9F0d1nJmfpQmsyAWABuBOnvSXp3kzrlfyd2tQUVpMVyCJE9Z\nYPzLvMmtrc9+MvZi75XSrDJIeexkOSgdtG5Me2VY5194E+97lk5KJK/KKfakHFFo\npCYdd2Pz5MkCIeXBg3mS28ojDYh2LltMIxHfn/Z1rVqkZhjSPUI1aXi/tHfZX88l\nm0meauFhAgMBAAECggEAN1HIavFI9bqd3G/OVZi107k85Xk9KdLoCUpLFmIQ/SNC\n3eNvhxLnQ1tPbKCQejGGgjDR8bMt6wKko2j9W9wwAcDexctDHbw7qKESdxFyfqlz\nNhFiABvl1r16kxrVtaEr3E5vzebV50kfKblv5CTuzrhyELjbfpRrJ3BRpiLsAKwC\nW5npHM2/lRo1I3MgNL9lcD0D4oVGPv4hWRecslrz5mur3HtlRPvm7pN7sptI3+zr\n842WDcMWqeV8Cjz5AE0oDTWATH7y9e0KY+TrIOweLFsIjmoCbYAY/+r3CMI3CSM8\nun5Pu60AYKpUoMjTAXAvu20eSqhiw/Tr3I7aTuGhWQKBgQDymvM8GbVXJTs2kfVN\nsjnQ8eTKr/WC2H0sxQN/aSJ6hM28x5o3BwMwCy99mvkv+Bh8F+bilHVyUWR1dlN5\nLFXY5L8vSzgyVoZ4qXBsXTiacBmojPi1X1WXA1EKefDTzr194eC4R4l7Xo8A1hhx\nv08CiWc5lH5aDIWWOPgRzRfHpwKBgQDkuWac/4Vxhw+3j3SAV6TFQr8ys/NxhRj4\n5jRSOWAFnGhpCLTxrYO1i1SCYejCni4FL3DkaLFNp0x1Qrk4DtAsBA9uZ6FcJqXp\noT6TrFwQrZ7Jvr27PhyFWZNGSsfLOWuxlY7QFu28ml4nrbYCQpq5U3f7J47thXjp\nplf+VZCvtwKBgHZfZnkXriSUNP0eYIuFf7JUpKbFDkzGpuT2SAud18XiEKSg270n\nvcVuX8Cwog9mxUOfQfeiKmAaGKM7leUU3dpTWnmQAR6Gm1w6iHFHVvv74HkeN6f/\nmTpy0tMCxqACSvEmCkjAFvPMIohs7kZp6vo44tX0f2Yen/u5VkkRQh4XAoGBAIXe\nldaSH7KA0IwpZJCxu3jRRkMQ3A23TxRu+HSfrDncf6fqNq21Vv9s2zusvqUaG+lh\nCPxG4m+G2dNQCERtNx5sCfQep2zeGgGSJKQeH4yLcgK2pynugpbyBKcBocqqgwPf\ne0UEBoV6/FzQ6VSNUy3hUronPxp6InjuqVXtEtAlAoGAOah1Jw639KKyTGxlZXce\nRH//qOYWEedpszb+y4bLaEfNbdBfhBWb/3KPV+zoeeGFc1TTi/xfxmPwE8xfODZ9\nwIBer5bKiSj7IpSbPsror3irZ4GEVRdHA3RVrd+JcVyJdikirtUspYzy+aCtmwlu\n4KJbiP83lIRExpzZKit0ZPk=\n-----END PRIVATE KEY-----\n",
+  "client_email": "mock@mock.com",
+  "client_id": "123456789",
   "auth_uri": "https://accounts.google.com/o/oauth2/auth",
   "token_uri": "https://oauth2.googleapis.com/token",
   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "YOUR_CLIENT_CERT_URL",
-  "universe_domain": "googleapis.com"
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/mock%40mock.com"
 }

@@ -67,19 +67,19 @@
 
 (defn- get-ws-url []
   (let [token (utils/get-item :auth-token)
-        cg-user-token (re/query :player/cg-user-token)]
-    (cond-> (if config/dev?
-              "ws://localhost:3000/ws"
-              (str "wss://" (get-server-url) ":443/ws"))
+        cg-user-token (re/query :player/cg-user-token)
+        proto (if (= "https:" js/window.location.protocol) "wss" "ws")
+        host (.-host js/window.location)]
+    (cond-> (str proto "://" host "/ws")
       (not (str/blank? token)) (str "?auth=" token)
       (not (str/blank? cg-user-token)) (str (if (not (str/blank? token))
                                               "&"
                                               "?") "cg_auth=" cg-user-token))))
 
 (defn- get-api-url [url]
-  (if config/dev?
-    "http://localhost:3000/api"
-    (or url (str "https://" (get-server-url) "/api"))))
+  (let [proto (.-protocol js/window.location)
+        host (.-host js/window.location)]
+    (or url (str proto "//" host "/api"))))
 
 (defn connect []
   (when-not (re/query :network/connecting?)
@@ -119,13 +119,15 @@
   ;; see http://docs.closure-library.googlecode.com/git/class_goog_net_XhrIo.html
   (if success?
     (on-success response)
-    (let [details (merge
-                    {:uri (j/call xhrio :getLastUri)
-                     :last-method (j/get xhrio :lastMethod_)
-                     :last-error (j/call xhrio :getLastError)
-                     :last-error-code (j/call xhrio :getLastErrorCode)
-                     :debug-message (-> xhrio (j/call :getLastErrorCode) (errors/getDebugMessage))}
-                    response)]
+    (let [details (if xhrio
+                    (merge
+                      {:uri (j/call xhrio :getLastUri)
+                       :last-method (j/get xhrio :lastMethod_)
+                       :last-error (j/call xhrio :getLastError)
+                       :last-error-code (j/call xhrio :getLastErrorCode)
+                       :debug-message (-> xhrio (j/call :getLastErrorCode) (errors/getDebugMessage))}
+                      response)
+                    (merge {:debug-message "XhrIo object missing"} response))]
       (on-error details))))
 
 (defn request->xhrio-options
